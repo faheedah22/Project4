@@ -1,0 +1,51 @@
+﻿@model List<TermProject.Models.AgentTourView>
+
+<h2>Offer list for Agent</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Home Address</th>
+            <th>Home City</th>
+            <th>Home State</th>
+            <th>Home ZipCode</th>
+            <th>Customer First Name</th>
+            <th>Customer Last Name</th>
+            <th>Customer Email</th>
+            <th>Customer Phone Number</th>
+            <th>Show Date</th>
+            <th>Show Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AgentTourView show in Model)
+        {
+
+            <tr>
+                <td>@show.Home.Address</td>
+                <td>@show.Home.City</td>
+                <td>@show.Home.State</td>
+                <td>@show.Home.Zipcode</td>
+                <td>@show.Showing.FirstName</td>
+                <td>@show.Showing.LastName</td>
+                <td>@show.Showing.Email</td>
+                <td>@show.Showing.PhoneNum</td>
+                <td>@show.Showing.ShowDate.Date.ToString("yyyy-MM-dd")</td>
+                <td>@show.Showing.ShowTime.TimeOfDay</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div class="d-flex justify-content-center">
+    <div class="form-group">
+
+        <a asp-controller="Account" asp-action="Portal" class="btn btn-primary">Back</a>
+    </div>
+</div>
+<br />
+@{
+}

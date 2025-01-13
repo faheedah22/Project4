@@ -1,0 +1,187 @@
+﻿@model TermProject.Models.HomeInfo
+<h2>Add New Home</h2>
+
+
+@if (ViewBag.HomeID != null)
+{
+    <div class="alert alert-info">
+        HomeID for the new home: @ViewBag.HomeID
+    </div>
+}
+
+@if (ViewBag.NewHome != null)
+{
+    var newHome = (HomeInfo)ViewBag.NewHome;
+    <div class="alert alert-success">
+        <h4>New Home Details:</h4>
+        <ul>
+            <li><strong>HomeID:</strong> @newHome.HomeID</li>
+            <li><strong>Address:</strong> @newHome.Address</li>
+            <li><strong>Price:</strong> @newHome.HomePrice</li>
+            <li><strong>Status:</strong> @newHome.Status</li>
+            <!-- Add any other properties you want to display -->
+        </ul>
+    </div>
+}
+
+<form method="POST" asp-controller ="HomeService" asp-action="AddHome">
+
+    <div>
+        <input asp-for=AgentID type="hidden" name="AgentID" value="@ViewBag.AgentId" />
+    </div>
+
+    <div>
+        <label asp-for="Address">Address: </label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="City">City: </label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="State">State: </label>
+        <input asp-for="State" class="form-control" />
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Zipcode">ZipCode: </label>
+        <input asp-for="Zipcode" class="form-control" />
+        <span asp-validation-for="Zipcode" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="propType">Select Property Type:</label>
+        <select id="propType" asp-for="PropType" class="form-control">
+            <option value="">-- Select an Option --</option>
+            @foreach (var option in (List<string>)ViewBag.PropTypes)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="HomePrice">Home Price:</label>
+        <input asp-for="HomePrice" class="form-control" />
+        <span asp-validation-for="HomePrice" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Year">Year Built:</label>
+        <input asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Description">Description:</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Garage">Garage:</label>
+        <input asp-for="Garage" class="form-control" />
+        <span asp-validation-for="Garage" class="text-danger"></span>
+    </div>
+
+    
+    <div>
+        <label for="status">Select Home Status:</label>
+        <select id="status" asp-for="Status" class="form-control">
+            <option value="">-- Select an Option --</option>
+            @foreach (var option in (List<string>)ViewBag.Statuses)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    
+    <div>
+        <label for="cooling">Select Cooling:</label>
+        <select id="cooling" asp-for="Facilities.Cooling" class="form-control">
+            <option value="">-- Select an Option --</option>
+            @foreach (var option in (List<string>)ViewBag.Cooling)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+    </div>
+    
+    <div>
+        <label for="heat">Select Heating:</label>
+        <select id="heat" asp-for="Facilities.Heating" class="form-control">
+            <option value="">-- Select an Option --</option>
+            @foreach (var option in (List<string>)ViewBag.Heating)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+    </div>
+    
+    <div>
+        <label for="water">Select Water Type:</label>
+        <select id="water" asp-for="Facilities.WaterType" class="form-control">
+            <option value="">-- Select an Option --</option>
+            @foreach (var option in (List<string>)ViewBag.Water)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label for="wasteType">Select Waste Type:</label>
+        <select id="wasteType" asp-for="Facilities.SewerType" class="form-control">
+            <option value="">-- Select an Option --</option>
+            @foreach (var option in (List<string>)ViewBag.Waste)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+    </div>
+    
+
+
+
+    <div>
+        <label>Amenities</label>
+        <div>
+            @if (ViewBag.Amenities != null)
+            {
+                foreach (var facility in (List<string>)ViewBag.Amenities)
+                {
+                    <div>
+                        <!-- Check if the amenity is selected (present in Facilities.Amenities) -->
+                        <input type="checkbox" name="Facilities.Amenities" value="@facility" id="@facility"
+                        @((Model.Facilities.Amenities != null && Model.Facilities.Amenities.Contains(facility)) ? "checked" : "") />
+                        <label for="@facility">@facility</label>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    @if (ViewBag.ValidationErrors != null && ViewBag.ValidationErrors.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewBag.ValidationErrors)
+                {
+                    <li>@error</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <form method="POST" asp-controller="HomeService" asp-action="AddHome">
+        <!-- Add your Home form fields here -->
+        <button type="submit" class="btn btn-primary">Add Home</button>
+    </form>
+</form>
+

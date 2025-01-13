@@ -1,0 +1,153 @@
+﻿@{
+    // ViewData["Title"] = "Home Page";
+}
+@addTagHelper *,  Microsoft.AspNetCore.Mvc.TagHelpers
+@model TermProject.Models.CustomerOfferInfo
+
+<div class="text-center">
+    <h1 class="display-4">Offer Request</h1>
+    
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        h1 {
+            color: #14532d;
+        }
+
+        body {
+            background-color: #e8f5e9;
+            font-family: 'Poppins', sans-serif;
+            ;
+        }
+
+        label {
+            color: black;
+        }
+
+        .btn-warning{
+            background-color: green;
+            
+        }
+    </style>
+</head>
+<body>
+    <form asp-controller="OfferInfoService" asp-action="Offer" method="post">
+
+        <div class="form-group">
+
+            <label class="form-label"> First Name: </label>
+
+            <input asp-for="CustFirstName" class="form-control" />
+            <span asp-validation-for="CustFirstName" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+        <div class="form-group">
+
+            <label class="form-label"> Last Name: </label>
+
+            <input asp-for="CustLastName" class="form-control" />
+            <span asp-validation-for="CustLastName" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+         <div class="form-group">
+
+            <label class="form-label"> Phone Number: </label>
+
+            <input asp-for="CustPhoneNum" class="form-control" />
+            <span asp-validation-for="CustPhoneNum" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+        <div class="form-group">
+
+            <label class="form-label"> Customer Email: </label>
+
+            <input asp-for="CustEmail" class="form-control" />
+            <span asp-validation-for="CustEmail" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+        <div class="form-group">
+
+            <label class="form-label"> Offer Amount: </label>
+
+            <input asp-for="OfferAmount" class="form-control" />
+            <span asp-validation-for="OfferAmount" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+        <div class="form-group">
+
+            <label for="dropdown" class="form-label"> Type of sales: </label>
+
+            <select id="dropdown" asp-for="SaleType"  class="form-control">
+                <option value="None">--Select--</option>
+                <option value="FHA">FHA</option>
+                <option value="conventional Mortgage">Conventional mortgage</option>
+                <option value="cash">Cash</option>
+                <option value="As-is">As-is with no contigencies</option>
+            </select>
+            <span asp-validation-for="SaleType" class="text-danger"> </span>
+
+        </div>
+
+        <br />
+        <div class="form-group">
+
+            <label class="form-label"> Any Contigencies? </label>
+
+            <input asp-for="Contigencies" class="form-control" />
+            <span asp-validation-for="Contigencies" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+        <div class="form-group">
+
+            <label class="form-label"> Do you need to sell your current home? </label>
+   
+                <input type="radio" id="option1" asp-for="CustHomeStatus" value="Yes">
+                <label for="option1">Yes</label>
+
+            <input type="radio" id="option2"  asp-for="CustHomeStatus" value="No">
+                <label for="option2">No</label>
+               
+            <span asp-validation-for="CustHomeStatus" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+        <div class="form-group">
+
+            <label class="form-label"> Move-in date: </label>
+
+            <input asp-for="MoveInDate" type="date" class="form-control" />
+            <span asp-validation-for="MoveInDate" class="text-danger"> </span>
+
+        </div>
+        <br />
+
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+                <button id="btnOffer" type="submit" class="btn btn-warning btn-block btn-dark">Submit offer</button>
+            </div>
+        </div>
+        <br />
+
+        <div class="container">
+
+            @ViewData["ErrorMessage"]
+        </div>
+    </form>
+</body>
+</html>

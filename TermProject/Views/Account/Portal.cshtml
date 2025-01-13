@@ -1,0 +1,58 @@
+﻿@{
+    // ViewData["Title"] = "Home Page";
+    //Layout = null;
+}
+@addTagHelper *,  Microsoft.AspNetCore.Mvc.TagHelpers
+@model TermProject.Models.AgentInfo
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+   
+    <form asp-controller="Account" asp-action="Portal" method="get">
+
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+
+                <a asp-controller="Account" asp-action="Homepage" class="btn btn-primary">HomePage</a>
+            </div>
+        </div>
+        <br />
+
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+
+                <a method="get" asp-controller="HomeService" asp-action="GetAgentHomes" class="btn btn-primary">Home Management</a>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+
+                <a asp-controller="ShowingService" asp-action="AgentShowings" class="btn btn-primary">Home Showings</a>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+
+                <a asp-controller="OfferInfoService" asp-action="AgentOffers" class="btn btn-primary">View Offers</a>
+            </div>
+        </div>
+
+        <br />
+
+
+
+    </form>
+
+
+</body>
+</html>

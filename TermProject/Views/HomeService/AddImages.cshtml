@@ -1,0 +1,48 @@
+﻿@model TermProject.Models.HomeImages
+
+<h1>Images Here :)</h1>
+
+
+<form method="post" enctype="multipart/form-data" asp-action="AddImages">
+    <div>
+        <input asp-for="HomeId" type="hidden" name="HomeId" value="@ViewBag.HomeId" />
+    </div>
+
+    <div>
+        <label asp-for="ImageUrl" class="control-label">Type Image Url</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="ImageTitle" class="control-label">Image Title</label>
+        <input asp-for="ImageTitle" class="form-control" />
+        <span asp-validation-for="ImageTitle" class="text-danger"></span>
+    </div>
+
+    <div>
+        <button type="submit">Add Image To Home Profile</button>
+        <button id="btnExit" type="button">Exit Image Adder</button>
+    </div>
+</form>
+
+
+<form method="get" asp-controller="Account" asp-action="Portal">
+    <!-- Add your Home form fields here -->
+    <button type="submit" class="btn btn-primary">Finish Adding Rooms</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById('btnExit').addEventListener('click', function () {
+            window.location.href = '@Url.Action("Index")';
+        });
+    </script>
+}
+
+@{
+}

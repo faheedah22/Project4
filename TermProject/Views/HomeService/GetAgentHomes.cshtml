@@ -1,0 +1,63 @@
+﻿@model List<TermProject.Models.HomeInfo>
+
+<h2>My Homes</h2>
+
+    <form asp-action="AddHome" method="get">
+        <button type="submit" class="btn btn-danger">Add Home</button>
+    <input type="hidden" name="agentId" value="@ViewBag.AgentId" />
+    </form>
+
+
+    <form asp-action="GetAgentHomes" method="get">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zipcode</th>
+                    <th>Number of Garage</th>
+                    <th>Home Description</th>
+                    <th>Number of Bathrooms</th>
+                    <th>Number of Bedrooms</th>
+                    <th>Home Price</th>
+                    <th>Property Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var home in Model)
+                {
+
+                    <tr>
+                        <td>@home.HomeID</td>
+                        <td>@home.Address</td>
+                        <td>@home.City</td>
+                        <td>@home.State</td>
+                        <td>@home.Zipcode</td>
+                        <td>@home.Garage</td>
+                        <td>@home.Description</td>
+                        <td>@home.GetNumBathrooms()</td>
+                        <td>@home.GetNumBedrooms()</td>
+                        <td>@home.HomePrice</td>
+                        <td>@home.PropType</td>
+                        <td>@home.Status</td>
+
+                        <td>
+                            <form asp-action="DeleteHome" method="post">
+                                <input type="hidden" name="homeId" value="@home.HomeID" />
+                                <input type="hidden" name="agentId" value="@home.AgentID" />
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            <form asp-action="EditHome" method="get" style="display:inline;">
+                                <input type="hidden" name="homeId" value="@home.HomeID" />
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </form>

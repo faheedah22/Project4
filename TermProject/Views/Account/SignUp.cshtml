@@ -1,0 +1,327 @@
+﻿@{
+    // ViewData["Title"] = "Home Page";
+}
+@model TermProject.Models.AgentInfo
+@addTagHelper *,  Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to DreamHaven Realty!</h1>
+</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body {
+            background-color: gainsboro;
+            
+        }
+
+        h1 {
+            color: orange;
+        }
+
+        label {
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <form asp-controller="Account" asp-action="SignUp" method="POST">
+
+        <div class="form-group">
+
+            <label class="form-label"> First Name: </label>
+
+            <input asp-for="FirstName" class="form-control" />
+
+            <span asp-validation-for="FirstName" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Last Name: </label>
+
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Email: </label>
+
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Phone Number: </label>
+
+            <input asp-for="PhoneNum" class="form-control" />
+            <span asp-validation-for="PhoneNum" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Home Address: </label>
+
+            <input asp-for="HomeAddress" class="form-control" />
+            <span asp-validation-for="HomeAddress" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Home City: </label>
+
+            <input asp-for="HomeCity" class="form-control" />
+            <span asp-validation-for="HomeCity" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Home State: </label>
+
+            <input asp-for="HomeState" class="form-control" />
+            <span asp-validation-for="HomeState" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Work Zipcode: </label>
+
+            <input asp-for="HomeZip" class="form-control" />
+            <span asp-validation-for="HomeZip" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Work Email: </label>
+
+            <input asp-for="WorkEmail" class="form-control" />
+            <span asp-validation-for="WorkEmail" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Work Phone Number: </label>
+
+            <input asp-for="WorkPhoneNum" class="form-control" />
+            <span asp-validation-for="WorkPhoneNum" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Work Address: </label>
+
+            <input asp-for="WorkAddress" class="form-control" />
+            <span asp-validation-for="WorkAddress" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Work City: </label>
+
+            <input asp-for="WorkCity" class="form-control" />
+            <span asp-validation-for="WorkCity" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Work State: </label>
+
+            <input asp-for="WorkState" class="form-control" />
+            <span asp-validation-for="WorkState" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Work Zipcode: </label>
+
+            <input asp-for="WorkZip" class="form-control" />
+            <span asp-validation-for="WorkZip" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Company Name: </label>
+
+            <input asp-for="CompanyName" class="form-control" />
+            <span asp-validation-for="CompanyName" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Company Email: </label>
+
+            <input asp-for="CompanyEmail" class="form-control" />
+            <span asp-validation-for="CompanyEmail" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Company Phone Number: </label>
+
+            <input asp-for="CompanyPhoneNum" class="form-control" />
+            <span asp-validation-for="CompanyPhoneNum" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Company Address: </label>
+
+            <input asp-for="CompanyAddress" class="form-control" />
+            <span asp-validation-for="CompanyAddress" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Company City: </label>
+
+            <input asp-for="CompanyCity" class="form-control" />
+            <span asp-validation-for="CompanyCity" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Company State: </label>
+
+            <input asp-for="CompanyState" class="form-control" />
+            <span asp-validation-for="CompanyState" class="text-danger"> </span>
+
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Company Zipcode: </label>
+
+            <input asp-for="CompanyZip" class="form-control" />
+            <span asp-validation-for="CompanyZip" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Username: </label>
+
+            <input asp-for="Username" class="form-control" />
+            <span asp-validation-for="Username" class="text-danger"> </span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label class="form-label"> Password: </label>
+
+            <input asp-for="UserPassword" class="form-control" />
+            <span asp-validation-for="UserPassword" class="text-danger"> </span>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label for="dropdown" class="form-label"> Type of sales: </label>
+
+            <select id="dropdown" asp-for="QuestionOne" class="form-control">
+                <option value="None">--Select--</option>
+                <option value="What is your mother's maiden name">What is your mother's maiden name?</option>
+                <option value="In what city were you born">In what city were you born?</option>
+                <option value="" What Elementary school did you attend">"What Elementary school did you attend?</option>
+            </select>
+            <span asp-validation-for="QuestionOne" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Answer: </label>
+
+            <input asp-for="AnswerOne" class="form-control" />
+            <span asp-validation-for="AnswerOne" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="dropdown" class="form-label"> Type of sales: </label>
+
+            <select id="dropdown" asp-for="QuestionTwo" class="form-control">
+                <option value="None">--Select--</option>
+                <option value="Where is your dream vacation destination">Where is your dream vacation destination?</option>
+                <option value="Favorite car brand">Favorite car brand?</option>
+                <option value="What was your favorite high school subject">What was your favorite high school subject?</option>
+            </select>
+            <span asp-validation-for="QuestionTwo" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label"> Answer: </label>
+
+            <input asp-for="AnswerTwo" class="form-control" />
+            <span asp-validation-for="AnswerTwo" class="text-danger"> </span>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="dropdown" class="form-label"> Type of sales: </label>
+
+            <select id="dropdown" asp-for="QuestionThree" class="form-control">
+                <option value="None">--Select--</option>
+                <option value="What is your favorite album">What is your favorite album?</option>
+                <option value="What is your favorite season of the year">What is your favorite season of the year?</option>
+                <option value="What is your favorite movie">What is your favorite movie?</option>
+            </select>
+            <span asp-validation-for="QuestionThree" class="text-danger"> </span>
+
+        </div>
+        <div class="form-group">
+
+            <label class="form-label"> Answer: </label>
+
+            <input asp-for="AnswerThree" class="form-control" />
+            <span asp-validation-for="AnswerThree" class="text-danger"> </span>
+
+        </div>
+
+        <br />
+
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+                <button id="btnSignUp" type="submit" class="btn btn-warning btn-block btn-lg"> Sign Up</button>
+            </div>
+        </div>
+
+        <div class="container">
+            @ViewData["ErrorMessage"]
+        </div>
+
+        <br />
+    </form>
+</body>
+</html>

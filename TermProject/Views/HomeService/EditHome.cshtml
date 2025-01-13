@@ -1,0 +1,137 @@
+﻿@model TermProject.Models.HomeInfo
+
+@{
+    ViewData["Title"] = "EditHome";
+}
+
+<h1>Edit Home</h1>
+
+<h4>HomeInfo</h4>
+<hr />
+<div class="row">
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+
+    <!-- Display Error Message -->
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+
+    <div class="col-md-4">
+        <form asp-action="EditHome" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AgentID" class="control-label"></label>
+                <input asp-for="AgentID" class="form-control" />
+                <span asp-validation-for="AgentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeID" class="control-label"></label>
+                <input asp-for="HomeID" class="form-control" />
+                <span asp-validation-for="HomeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zipcode" class="control-label"></label>
+                <input asp-for="Zipcode" class="form-control" />
+                <span asp-validation-for="Zipcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PropType" class="control-label"></label>
+                <input asp-for="PropType" class="form-control" />
+                <span asp-validation-for="PropType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomePrice" class="control-label"></label>
+                <input asp-for="HomePrice" class="form-control" />
+                <span asp-validation-for="HomePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Garage" class="control-label"></label>
+                <input asp-for="Garage" class="form-control" />
+                <span asp-validation-for="Garage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ListingDate" class="control-label"></label>
+                <input asp-for="ListingDate" class="form-control" />
+                <span asp-validation-for="ListingDate" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label for="cooling">Edit Cooling:</label>
+                <select id="cooling" asp-for="Facilities.Cooling" asp-items="@(new SelectList(ViewBag.Cooling))" class="form-control">
+                </select>
+            </div>
+
+
+            <div>
+                <label for="heat">Edit Heating:</label>
+                <select id="heat" asp-for="Facilities.Heating" asp-items="@(new SelectList(ViewBag.Heating))" class="form-control">
+                </select>
+            </div>
+            
+
+            <div>
+                <label for="water">Edit Water Type:</label>
+                <select id="water" asp-for="Facilities.WaterType" asp-items="@(new SelectList(ViewBag.Water))" class="form-control">
+                </select>
+            </div>
+
+
+            <div>
+                <label for="wasteType">Edit Waste Type:</label>
+                <select id="wasteType" asp-for="Facilities.SewerType" asp-items="@(new SelectList(ViewBag.Waste))" class="form-control">
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Edit</button>
+            
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

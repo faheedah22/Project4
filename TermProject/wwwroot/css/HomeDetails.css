@@ -1,0 +1,62 @@
+﻿.custom-btn {
+    color: goldenrod;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight:normal;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .custom-btn:hover {
+        background-color: darkgoldenrod;
+        transform: scale(1.05);
+    }
+
+    .custom-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.5);
+    }
+
+div form {
+    margin-bottom: 10px;
+}
+h1 {
+    color: goldenrod;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f3e6;
+    color: #333333;
+}
+
+label {
+    color: black;
+}
+
+.btn-warning {
+    background-color: green;
+}
+
+.bgColor {
+    background-color: dodgerblue;
+}
+
+
+.custom-card {
+    border: none; /* Remove default border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Add soft shadow */
+    overflow: hidden; /* Ensure content respects border radius */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    background-color: goldenrod;
+}
+
+.buttonS {
+    text-align: center;
+    margin-top: 20px;
+}
